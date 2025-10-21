@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "rootDir": "./api/public",
+    "outDir": "./api/public",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ES2020", "DOM"],
+    "types": ["@openui5/ts-types"]
+  },
+  "files": ["./api/public/login.ts"],
+  "exclude": ["node_modules", "./api/public/**/*.js"]
+}
