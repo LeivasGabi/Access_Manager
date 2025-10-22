@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "type": "commonjs",
   "scripts": {
-   "dev": "ts-node-dev --respawn --transpile-only api/src/server.ts",
-    "build": "tsc && tsc -p tsconfig.frontend.json",
+    "dev": "ts-node-dev --respawn --transpile-only api/src/server.ts",
     "build:fe": "tsc -p tsconfig.frontend.json",
+    "build": "tsc && npm run build:fe",
     "start": "node api/dist/server.js"
   },
   "description": "",
-  "main": "index.js",
+  "main": "login.js",
   "dependencies": {
     "accepts": "^2.0.0",
     "body-parser": "^2.2.0",

@@ -1,13 +1,6 @@
 "use strict";
-function setSession(user) {
-    localStorage.setItem("am_user", user);
-    localStorage.setItem("am_token", "dummy-token");
-}
-function isLoggedIn() {
-    return !!localStorage.getItem("am_token");
-}
 if (isLoggedIn()) {
-    window.location.href = "/";
+    window.location.href = "/director.html";
 }
 sap.ui.getCore().attachInit(function () {
     const title = new sap.m.Title({ text: "School Portal" }).addStyleClass("sapUiTinyMarginBottom");
@@ -27,18 +20,24 @@ sap.ui.getCore().attachInit(function () {
         const pass = inpPass.getValue().trim();
         if (!user) {
             inpUser.setValueState(sap.ui.core.ValueState.Error);
-            inpUser.setValueStateText("Informe o usuário");
+            inpUser.setValueStateText("Inform the user");
             return;
         }
         if (!pass) {
             inpPass.setValueState(sap.ui.core.ValueState.Error);
-            inpPass.setValueStateText("Informe a senha");
+            inpPass.setValueStateText("Enter the password");
             return;
         }
-        setSession(user);
-        const MessageToast = sap.ui.requireSync("sap/m/MessageToast");
-        MessageToast.show("Welcome!");
-        window.location.href = "/";
+        if (user === "director1" && pass === "directorone") {
+            setSession(user);
+            const MessageToast = sap.ui.requireSync("sap/m/MessageToast");
+            MessageToast.show("Welcome!");
+            setTimeout(() => {
+                window.location.href = "/director.html";
+            }, 400);
+            return;
+        }
+        sap.m.MessageBox.error("Invalid username or password.");
     }
     const btnLogin = new sap.m.Button({
         text: "Enter",

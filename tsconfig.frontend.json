@@ -1,14 +1,24 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
     "target": "ES2020",
     "module": "ESNext",
-    "rootDir": "./api/public",
-    "outDir": "./api/public",
+    "rootDir": "api/public",
+    "outDir": "dist/public",
     "strict": true,
     "skipLibCheck": true,
     "lib": ["ES2020", "DOM"],
     "types": ["@openui5/ts-types"]
   },
-  "files": ["./api/public/login.ts"],
-  "exclude": ["node_modules", "./api/public/**/*.js"]
+  "include": [
+    "api/public/**/*.ts",
+    "api/public/**/*.tsx",
+    "api/public/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "api/public/**/*.d.ts"
+  ]
 }
